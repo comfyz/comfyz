@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+	<head>
+		<title>loading</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css" media="screen">
+		html, body { height:100%; background-color: #000000;}
+		body { margin:0; padding:0; overflow:hidden; }
+		#flashContent { width:100%; height:100%; }
+		</style>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.js"></script>
+ 
+<script>!(function(a,b,c,d,e,f){var g="",h=a.sessionStorage,i="__admaster_ta_param__",j="tmDataLayer"!==d?"&dl="+d:"";
+if(a[f]={},a[d]=a[d]||[],a[d].push({startTime:+new Date,event:"tm.js"}),h){var k=a.location.search,
+l=new RegExp("[?&]"+i+"=(.*?)(&|#|$)").exec(k)||[];l[1]&&h.setItem(i,l[1]),l=h.getItem(i),
+l&&(g="&p="+l+"&t="+ +new Date)}var m=b.createElement(c),n=b.getElementsByTagName(c)[0];m.src="//tag.cdnmaster.cn/tmjs/tm.js?id="+e+j+g,
+m.async=!0,n.parentNode.insertBefore(m,n)})(window,document,"script","tmDataLayer","TM-441178","admaster_tm");</script>
+
+		<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?480dcc81764c44564fef2de62e29f83c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+
+<body bgcolor="#ffffff">
+
+<script>
+function track(n){
+	console.log(n);
+	if(n==1)
+	_smq.push(['custom', '首页', 'TVC播放', '跳过']);
+
+	if(n==2)
+	_smq.push(['custom', '时间回溯页', '上传视频', '够胆，就上传你的无畏瞬间']);
+
+	if(n==3)
+	_smq.push(['custom', '时间回溯页', '上传视频', '无畏驾驭']);
+
+	if(n==4)
+	_smq.push(['custom', '时间回溯页', '上传视频', '我的无畏瞬间']);
+if(n==5)
+	_smq.push(['custom', '我的无畏瞬间', '输入视频编码', '确定']);
+
+if(n==6)
+	_smq.push(['custom', '无畏驾驭', 'KV页', '车型详情']);
+
+if(n==7)
+	_smq.push(['custom', '无畏驾驭', 'KV页', '无畏体验']);
+
+if(n==8)
+	_smq.push(['custom', '无畏驾驭', 'KV页', '精彩视频']);
+
+if(n==9)
+	_smq.push(['custom', '无畏驾驭', 'KV页', '在线购车']);
+
+
+	}
+//表单验证
+function checkInput(s) {
+   if(s=="")return false;
+   return true;
+}
+
+function share(){
+window.open("http://v.t.sina.com.cn/share/share.php?title="+document.title,"_blank");
+}
+ 
+	function check(username,sex,phone,province,city,dealer,isagree,where,date){
+		 
+ console.log(username,sex,phone,province,city,dealer,isagree,where,date)
+
+    //验证手机号码
+    var regex = /^1[34578]\d{9}$/;
+    
+
+    if(checkInput(username) &&checkInput(phone)&&isagree==1){
+
+        if (!regex.exec(phone)) {
+            alert('手机号码格式不正确！');
+            return;
+        }
+ _smq.push(['custom','填写信息_提交',username,phone]);
+        //_smq.push(['custom','填写信息_提交', username , phone ]);//统计
+       // _hmt.push(['_trackEvent', 'tijiaoxinxi', 'click', '填写信息_提交']);//统计
+
+          $.ajax({
+	        type: 'post',
+	        url: '../db_manage/submit_testdrive.php',
+	        data: {
+	            username: username,
+	            mysex: sex,
+	            phone: phone,
+	            province: province,
+	            city: city,
+	            dealer: dealer,
+				go_where:where,
+				test_date:date
+	        },
+	        cache: false,
+	        dataType: 'text',
+	        success: function (data) {
+	            var mydate = eval("(" + data + ")");
+				//alert(mydate.code);
+	            if (mydate.code == 1) {
+	                alert("提交成功");
+					
+	            }
+	            else {
+	               // alert("数据提交失败");
+				   alert(mydate.msg);
+	            }
+	        }
+	    });
+ 
+    }
+    else
+    {
+        alert('请填写信息或勾选阅读条款');
+    }
+
+ 
+}
+</script>
+<script>
+function log(t){console.log(t)}
+</script>
+	</head>
+	<body>
+		<div id="flashContent">
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="100%%" height="100%%" id="loading" align="middle">
+				<param name="movie" value="loading.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#000000" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="gpu" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="always" />
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="loading.swf" width="100%%" height="100%%">
+					<param name="movie" value="loading.swf" />
+					<param name="quality" value="high" />
+					<param name="bgcolor" value="#000000" />
+					<param name="play" value="true" />
+					<param name="loop" value="true" />
+					<param name="wmode" value="gpu" />
+					<param name="scale" value="showall" />
+					<param name="menu" value="true" />
+					<param name="devicefont" value="false" />
+					<param name="salign" value="" />
+					<param name="allowScriptAccess" value="always" />
+				<!--<![endif]-->
+					<a href="http://www.adobe.com/go/getflash">
+						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获得 Adobe Flash Player" />
+					</a>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+		</div>
+	</body>
+</html>
