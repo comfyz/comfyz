@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head lang="en">
+</head>
+<body>
+<canvas id="can" width="900" height="900" style="background:Black;"></canvas>
+<script>
+    var width = 30, sn = [42, 41], dz = 43, fx = 1, n, ctx = document.getElementById("can").getContext("2d");
+    function draw(t, c) {
+        ctx.fillStyle = c;
+        ctx.fillRect(t % width * width + 1, ~~(t / width) * width + 1, width - 2, width - 2);
+    };
+    document.onkeydown = function (e) {
+        fx = sn[1] - sn[0] == (n = [-1, ~~(-width), 1, width][(e || event).keyCode - 37] || fx) ? fx : n
+    };
+    !function () {
+        sn.unshift(n = sn[0] + fx);
+        if (sn.indexOf(n, 1) > 0 || n < 0 || n > width * width - 1 || fx == 1 && n % width == 0 || fx == -1 && n % width == width - 1) return alert("GAME OVER");
+        draw(n, "Lime");
+        if (n == dz) {
+            while (sn.indexOf(dz = ~~(Math.random() * width * width)) >= 0) ;
+            draw(dz, "Yellow");
+        } else
+            draw(sn.pop(), "Black");
+        setTimeout(arguments.callee, 130);
+    }();
+</script>
+</body>
+</html>
