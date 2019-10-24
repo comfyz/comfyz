@@ -1,0 +1,44 @@
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=640,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head> 
+<body>
+
+<button onclick="getCurTime()" type="button">获得当前时间的位置</button>
+<button onclick="setCurTime()" type="button">把时间位置设置为 300 秒</button>
+<br />
+<br />
+<video id="video1" controls="controls" x5-playsinline="" playsinline="" webkit-playsinline="" x-webkit-airplay="allow" preload="auto"
+ x5-video-player-fullscreen="true">
+  <source src="http://wx.hebhcld.com.cn/video/危货/1.1.MP4" type="video/mp4">
+  <source src="./burmester.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video>
+
+<script>
+ const myVid=document.getElementById("video1");
+ function getCurTime()
+  { 
+  alert(myVid.currentTime);
+  } 
+function setCurTime()
+  { 
+  myVid.currentTime=300;
+  }
+ let currentTime = 5
+
+var tmid =  setTimeout (test,1000)
+function test(){
+  if(  myVid.buffered.end(0)  > currentTime ){
+    window.clearTimeout(tmid);
+    myVid.currentTime='5';
+  }
+}
+</script> 
+
+</body> 
+</html>
