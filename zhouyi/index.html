@@ -7,8 +7,6 @@
 <meta name="viewport" content="width=640,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <html> 
 <body> 
-
-<button onclick="getCurTime()" type="button">获得当前时间的位置</button>
 <!--<button onclick="setCurTime()" type="button">把时间位置设置为 300 秒</button>-->
 <br />
 <br />
@@ -22,28 +20,12 @@
 <script>
  const myVid=document.getElementById("video1");
  myVid.play()
- function getCurTime()
-  { 
-  alert(myVid.currentTime);
-  } 
-function setCurTime()
-  { 
-  myVid.currentTime=300;
-  }
  myVid.oncanplay=function(){ 
     myVid.currentTime=300;
 }
- myVid.loadeddata=function(){ 
+ myVid.canplaythrough=function(){ 
     myVid.currentTime=300;
 }
- myVid.loadedmetadata=function(){ 
-    myVid.currentTime=300;
-}
-//也可以在这个事件触发后播放一次然后暂停（这样以后视频会处于加载状态，为后面的流畅播放做准备）
-document.addEventListener("WeixinJSBridgeReady", function (){ 
-    video.play();
-    video.pause();
-}, false)
 </script> 
 
 </body> 
