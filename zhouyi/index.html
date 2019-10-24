@@ -21,11 +21,10 @@
 
 <script>
 $(document).ready(function(){
-    myVid.currentTime=300;
-    alert("页面加载完成！"); 
-}); 
-const myVid=document.getElementById("video1");
-function getCurTime()
+ const myVid=document.getElementById("video1");
+ myVid.currentTime=300;
+ alert("页面加载完成！");
+ function getCurTime()
   { 
   alert(myVid.currentTime);
   } 
@@ -33,6 +32,8 @@ function setCurTime()
   { 
   myVid.currentTime=300;
   } 
+}); 
+
 </script> 
 
 </body> 
