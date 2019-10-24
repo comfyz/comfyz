@@ -33,7 +33,10 @@ function setCurTime()
  myVid.oncanplay=function(){ 
     myVid.currentTime=300;
 }
- myVid.durationchange=function(){ 
+ myVid.loadeddata=function(){ 
+    myVid.currentTime=300;
+}
+ myVid.loadedmetadata=function(){ 
     myVid.currentTime=300;
 }
 //也可以在这个事件触发后播放一次然后暂停（这样以后视频会处于加载状态，为后面的流畅播放做准备）
